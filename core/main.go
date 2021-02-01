@@ -27,8 +27,12 @@ func main() {
 	closerExample()
 
 	lol()
+
+	// reculsive
 	result := reculsive(8)
 	fmt.Println(result)
+
+	// struct 개념 및 생성자 만들기
 	person := newPerson("hong", 22)
 	fmt.Println(person)
 }

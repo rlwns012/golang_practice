@@ -1,4 +1,6 @@
-###golang basic practice
+# golang basic practice
+
+___contents___
 
 - variable
 - type
@@ -7,3 +9,4 @@
 - reculsive
 - gorutine
 - channel
+
