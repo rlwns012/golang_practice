@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"hello/model"
-	"hello/utils"
+	// "hello/model"
+	// "hello/utils"
 )
 
 func main() {
@@ -12,8 +12,8 @@ func main() {
 	fmt.Println("what the")
 
 	// 디렉터리 생성과 import 예제
-	utils.Helloworld()
-	model.HelloModel("hong")
+	// utils.Helloworld()
+	// model.HelloModel("hong")
 
 	/**
 	Closer 실패 사례
@@ -33,8 +33,8 @@ func main() {
 	fmt.Println(result)
 
 	// struct 개념 및 생성자 만들기
-	person := newPerson("hong", 22)
-	fmt.Println(person)
+	// person := newPerson("hong", 22)
+	// fmt.Println(person)
 }
 
 func dosomething() func() int {
@@ -67,17 +67,17 @@ func reculsive(n int) int {
 	return n * reculsive(n)
 }
 
-func newPerson(name string, age int) *model.Person {
-	// implicit assignment to unexported field name in model.Person literalcompiler
-	// person := model.Person{name, age}
-	// 위의 문제 - 다른 디렉터리의 객체를 생성하기 위해서는 Name과 같이 대문자로 선언하여 public의 형태로 만들어 주어야함
-	person := model.Person{}
-	// person2 := model.Person{"hong", 22}
-	// fmt.Println(person2)
-	person.Age = age
-	person.Name = name
-	return &person
-}
+// func newPerson(name string, age int) *model.Person {
+// 	// implicit assignment to unexported field name in model.Person literalcompiler
+// 	// person := model.Person{name, age}
+// 	// 위의 문제 - 다른 디렉터리의 객체를 생성하기 위해서는 Name과 같이 대문자로 선언하여 public의 형태로 만들어 주어야함
+// 	person := model.Person{}
+// 	// person2 := model.Person{"hong", 22}
+// 	// fmt.Println(person2)
+// 	person.Age = age
+// 	person.Name = name
+// 	return &person
+// }
 
 // package main
 
