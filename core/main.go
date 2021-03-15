@@ -2,7 +2,11 @@ package main
 
 import (
 	"fmt"
-	// "hello/model"
+	"golang_practice/basic"
+	"golang_practice/blockchain"
+	"golang_practice/model"
+	"golang_practice/utils"
+	// ""
 	// "hello/utils"
 )
 
@@ -10,10 +14,10 @@ func main() {
 
 	// fmt import 시험
 	fmt.Println("what the")
-
+	basic.Hi()
 	// 디렉터리 생성과 import 예제
-	// utils.Helloworld()
-	// model.HelloModel("hong")
+	utils.Helloworld()
+	model.HelloModel("hong")
 
 	/**
 	Closer 실패 사례
@@ -24,7 +28,7 @@ func main() {
 	// fmt.Println(tmp2)
 	// tmp3 := dosomething()
 	// fmt.Println(tmp3)
-	closerExample()
+	// closerExample()
 
 	lol()
 
@@ -35,6 +39,12 @@ func main() {
 	// struct 개념 및 생성자 만들기
 	// person := newPerson("hong", 22)
 	// fmt.Println(person)
+	block := blockchain.NewBlock("123", []byte{121})
+	fmt.Println(block.Data)
+	fmt.Println(block.Hash)
+	fmt.Println(block.PrevBlockHash)
+	fmt.Println(block.Timestamp)
+
 }
 
 func dosomething() func() int {
