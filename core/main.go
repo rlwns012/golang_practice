@@ -45,6 +45,16 @@ func main() {
 	fmt.Println(block.PrevBlockHash)
 	fmt.Println(block.Timestamp)
 
+	bc := blockchain.NewBlockchain()
+	bc.AddBlock("send 1 btc")
+	bc.AddBlock("send 2 btc to hong")
+
+	for _, block := range bc.GetBlocks() {
+		fmt.Printf("Prev. hash: %x\n", block.PrevBlockHash)
+		fmt.Printf("Data: %s\n", block.Data)
+		fmt.Printf("Hash: %x\n", block.Hash)
+		fmt.Println()
+	}
 }
 
 func dosomething() func() int {
