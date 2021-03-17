@@ -6,6 +6,7 @@ import (
 	"golang_practice/blockchain"
 	"golang_practice/model"
 	"golang_practice/utils"
+	"strconv"
 	// ""
 	// "hello/utils"
 )
@@ -54,6 +55,9 @@ func main() {
 		fmt.Printf("Data: %s\n", block.Data)
 		fmt.Printf("Hash: %x\n", block.Hash)
 		fmt.Printf("Nonce: %d\n", block.Nonce)
+		fmt.Println()
+		pow := blockchain.NewProofOfWork(block)
+		fmt.Printf("PoW: %s\n", strconv.FormatBool(pow.Validate()))
 		fmt.Println()
 	}
 }
