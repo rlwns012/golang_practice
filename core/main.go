@@ -40,11 +40,13 @@ func main() {
 	// struct 개념 및 생성자 만들기
 	// person := newPerson("hong", 22)
 	// fmt.Println(person)
-	block := blockchain.NewBlock("123", []byte{121})
-	fmt.Println(block.Data)
-	fmt.Println(block.Hash)
-	fmt.Println(block.PrevBlockHash)
-	fmt.Println(block.Timestamp)
+
+	// 블록 생성 임시 테스트
+	// block := blockchain.NewBlock("123", []byte{121})
+	// fmt.Println(block.Data)
+	// fmt.Println(block.Hash)
+	// fmt.Println(block.PrevBlockHash)
+	// fmt.Println(block.Timestamp)
 
 	bc := blockchain.NewBlockchain()
 	bc.AddBlock("send 1 btc")
