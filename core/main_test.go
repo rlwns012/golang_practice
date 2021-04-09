@@ -7,11 +7,12 @@ import (
 	"practice/model"
 	"practice/utils"
 	"strconv"
+	"testing"
 	// ""
 	// "hello/utils"
 )
 
-func main() {
+func Test(t *testing.T) {
 
 	// fmt import 시험
 	fmt.Println("what the")
@@ -31,12 +32,6 @@ func main() {
 	// fmt.Println(tmp3)
 	// closerExample()
 
-	lol()
-
-	// reculsive
-	result := reculsive(8)
-	fmt.Println(result)
-
 	// struct 개념 및 생성자 만들기
 	// person := newPerson("hong", 22)
 	// fmt.Println(person)
@@ -51,6 +46,7 @@ func main() {
 	bc := blockchain.NewBlockchain()
 	bc.AddBlock("send 1 btc")
 	bc.AddBlock("send 2 btc to hong")
+	// t.Error("add block fail")
 
 	for _, block := range bc.GetBlocks() {
 		fmt.Printf("Prev. hash: %x\n", block.PrevBlockHash)
@@ -64,35 +60,57 @@ func main() {
 	}
 }
 
-func dosomething() func() int {
-
-	i := 0
-	// fmt.Println(i)
-	return func() int {
-		i++
-		return i
-	}
-}
-
-func lol() {
+func Test_dosomthing(t *testing.T) {
 	fmt.Println("what")
 }
 
-func closerExample() {
-	tmp := dosomething()
-	fmt.Println(tmp())
-	fmt.Println(tmp())
-	fmt.Println(tmp())
-	fmt.Println(tmp())
+func BenchmarkBlock(b *testing.B) {
+	bc := blockchain.NewBlockchain()
+	bc.AddBlock("send 1 btc")
+	bc.AddBlock("send 2 btc to hong")
+	// t.Error("add block fail")
+
+	for _, block := range bc.GetBlocks() {
+		fmt.Printf("Prev. hash: %x\n", block.PrevBlockHash)
+		fmt.Printf("Data: %s\n", block.Data)
+		fmt.Printf("Hash: %x\n", block.Hash)
+		fmt.Printf("Nonce: %d\n", block.Nonce)
+		fmt.Println()
+		pow := blockchain.NewProofOfWork(block)
+		fmt.Printf("PoW: %s\n", strconv.FormatBool(pow.Validate()))
+		fmt.Println()
+	}
 }
 
-func reculsive(n int) int {
-	if n == 10 {
-		return 1
-	}
-	n++
-	return n * reculsive(n)
-}
+// func Test_dosomething() func() int {
+
+// 	i := 0
+// 	// fmt.Println(i)
+// 	return func() int {
+// 		i++
+// 		return i
+// 	}
+// }
+
+// func Test_lol() {
+// 	fmt.Println("what")
+// }
+
+// func Test_closerExample() {
+// 	tmp := dosomething()
+// 	fmt.Println(tmp())
+// 	fmt.Println(tmp())
+// 	fmt.Println(tmp())
+// 	fmt.Println(tmp())
+// }
+
+// func Test_reculsive(n int) int {
+// 	if n == 10 {
+// 		return 1
+// 	}
+// 	n++
+// 	return n * reculsive(n)
+// }
 
 // func newPerson(name string, age int) *model.Person {
 // 	// implicit assignment to unexported field name in model.Person literalcompiler

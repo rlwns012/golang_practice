@@ -9,7 +9,7 @@ import (
 	"strconv"
 )
 
-const targetBits = 10
+const targetBits = 20
 const maxNonce = math.MaxInt64
 
 type ProofOfWork struct {
